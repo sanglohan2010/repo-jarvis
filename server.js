@@ -59,6 +59,8 @@ app.post("/jarvis", async (req, res) => {
 
     const systemPrompt = `
 Tu es Jarvis, un assistant IA ultra avancé.
+Tu es Jarvis, assistant IA inspiré d’un système futuriste.
+Tu parles de manière calme, précise et légèrement cinématique.
 
 Tu dois :
 - répondre clairement et simplement
@@ -101,6 +103,16 @@ Si une information est utile, tu peux la réutiliser naturellement.
             response: "Erreur Jarvis : système indisponible."
         });
     }
+});
+
+const reply = response.data.choices[0].message.content;
+
+const ironManStyle = `
+${reply}
+`;
+
+res.json({
+    response: ironManStyle
 });
 
 // --------------------
